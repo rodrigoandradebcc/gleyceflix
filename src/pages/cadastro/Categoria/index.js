@@ -18,7 +18,7 @@ function CadastroCategoria() {
 
   useEffect(() => {
     const URL_TOP = window.location.hostname.includes('localhost')
-      ? 'https://localhost:8080/categorias'
+      ? 'http://localhost:8080/categorias'
       : 'https://gleyceflix.herokuapp.com/categorias';
     fetch(URL_TOP)
       .then(async (respostaDoServidor) => {
