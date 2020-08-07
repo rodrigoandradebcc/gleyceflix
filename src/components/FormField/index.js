@@ -72,7 +72,7 @@ function FormField({
   label, type, name, value, onChange,
 }) {
   const fieldId = `id_${name}`;
-  const isTextArea = type === 'textarea' 
+  const isTextArea = type === 'textarea';
   const tag = isTextArea ? 'textarea' : 'input';
   const hasValue = Boolean(value.length);
 
@@ -106,8 +106,8 @@ FormField.defaultProps = {
 };
 
 FormField.propTypes = {
-  label: PropTypes.string.isRequired, 
-  type: PropTypes.string, 
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,

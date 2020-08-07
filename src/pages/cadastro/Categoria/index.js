@@ -30,7 +30,6 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    console.log('Alo alo brazil');
     const URL_TOP = 'http://localhost:8080/categoria';
     fetch(URL_TOP)
       .then(async (respostaDoServidor) => {
@@ -68,7 +67,7 @@ function CadastroCategoria() {
 
       <form onSubmit={function handleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
-        console.log('Você tentou enviar o form');
+        // console.log('Você tentou enviar o form');
         setCategorias([
           ...categorias,
           values,
