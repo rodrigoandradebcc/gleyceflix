@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hocks/useForm';
 
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -11,26 +12,12 @@ function CadastroCategoria() {
     descricao: '',
     cor: '',
   };
+
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
-
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor,
-    });
-  }
-
-  function handleChange(infosDoEvento) {
-    setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value,
-      // eslint-disable-next-line indent
-      );
-  }
 
   useEffect(() => {
-    const URL_TOP = window.location.hostname.includes('localhost') 
+    const URL_TOP = window.location.hostname.includes('localhost')
       ? 'https://localhost:8080/categorias'
       : 'https://gleyceflix.herokuapp.com/categorias';
     fetch(URL_TOP)
@@ -75,7 +62,7 @@ function CadastroCategoria() {
           values,
         ]);
 
-        setValues(valoresIniciais);
+        clearForm();
       }}
       >
 
